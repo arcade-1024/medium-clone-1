@@ -1,0 +1,10 @@
+/node_modules
+/.pnp
+.pnp.js
+.env
+.env.*
+
+
+.vscode/*
+
+/requests
