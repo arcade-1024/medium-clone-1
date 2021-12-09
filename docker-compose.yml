@@ -1,0 +1,20 @@
+version: "3.1"
+services:
+  db:
+    image: mongo:5.0.4
+    restart: always
+    ports:
+      - "27020:27017"
+    volumes:
+      - "~/Documents/db/medium-db:/data/db"
+  api:
+    image: node:lts-bullseye
+    user: node
+    working_dir: '/app'
+    volumes:
+      - "./:/app"
+    ports:
+      - "4000:4000"
+    command: "npm start"
+    depends_on:
+      - db

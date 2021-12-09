@@ -9,7 +9,7 @@ class UserController {
 	}
 
 	showObjectData = (object) => {
-		const allowed = ["email", "name", "bio", "image"];
+		const allowed = ["email", "name", "bio", "image","_id"];
 		return Object.keys(object._doc)
 			.filter((key) => allowed.includes(key))
 			.reduce((obj, key) => {
@@ -30,7 +30,7 @@ class UserController {
 	};
 
 	registerUser = async (req, res) => {
-		const status = await this.userService.registerUser(req.body.user);
+		const status = await this.userService.registerUser(req.body);
 		res.send(status);
 	};
 
@@ -60,7 +60,7 @@ class UserController {
 
 	initializeRouter = () => {
 		return {
-			rootRoute: "/users",
+			rootRoute: "/api/users",
 			routes: [
 				{
 					route: "/",
@@ -83,7 +83,7 @@ class UserController {
 				{
 					route: "/",
 					method: "POST",
-					middleware: [this.authService.ensureAuthenticated],
+					middleware: [],
 					function: this.registerUser,
 				},
 				{

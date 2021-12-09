@@ -1,5 +1,4 @@
 const express = require("express");
-const router = express.Router();
 const Joi = require("joi");
 class UserService {
 	constructor(userModel) {

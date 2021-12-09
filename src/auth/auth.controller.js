@@ -51,7 +51,7 @@ class AuthController {
 	};
 	initializeAuthRouter = () => {
 		return {
-			rootRoute: "/users",
+			rootRoute: "/api/users",
 			routes: [
 				{
 					route: "/login",
